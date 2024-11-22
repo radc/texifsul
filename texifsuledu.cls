@@ -78,11 +78,22 @@ Versão: \currversion^^J
 \descricaodocumento{Proposta de Disserta{\c{c}}{\~a}o apresentada ao \@programa\ do \@unidade\ da \@universidade, como requisito parcial \`a obten{\c{c}}{\~a}o do t\'itulo de Mestre em \@curso.}
 }
 
+
 \DeclareOption{tese}{
 \documento{Tese}
 \tipodocumento{\thesisname\ (\doctoratein\ \cursoname) -- \unidadename}
-\descricaodocumento{Tese apresentada ao \@programa\ do \@unidade\ da \@universidade, como requisito parcial \`a obten{\c{c}}{\~a}o do t\'itulo de Doutor em \@curso.}
-\descricaoaprovacao{Tese aprovada, como requisito parcial, para obten{\c{c}}{\~a}o do grau de Doutor em \@curso, \@programa, \@unidade, \@universidade.}}
+\descricaodocumento{Tese apresentada ao \@programa\ do \@unidade\ do \@universidade, como requisito parcial \`a obten{\c{c}}{\~a}o do t\'itulo de \@tituloformacao. \\\'Area de concentra\c{c}{\~a}o: \@areaconhecimento\\ \advisorname:~\@advisora \\
+\@ifundefined{@coadvisora}{}{\coadvisorname\@ifundefined{@coadvisorb}{}{es}: \@coadvisora}
+\@ifundefined{@coadvisorb}{}{e \@coadvisorb}
+} 
+\descricaoaprovacao{Tese aprovada, como requisito parcial, para obten{\c{c}}{\~a}o do grau de \@tituloformacao, \@programa, \@unidade, \@universidade.}
+}
+
+% \DeclareOption{tese}{
+% \documento{Tese}
+% \tipodocumento{\thesisname\ (\doctoratein\ \cursoname) -- \unidadename}
+% \descricaodocumento{Tese apresentada ao \@programa\ do \@unidade\ da \@universidade, como requisito parcial \`a obten{\c{c}}{\~a}o do t\'itulo de Doutor em \@curso.}
+% \descricaoaprovacao{Tese aprovada, como requisito parcial, para obten{\c{c}}{\~a}o do grau de Doutor em \@curso, \@programa, \@unidade, \@universidade.}}
 
 %proposta de tese deixou de existir no PPGC - regimento de 2020
 \DeclareOption{tese-proposta}{
