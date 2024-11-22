@@ -2,20 +2,24 @@
 % Identificação
 %==============================================================================
 \def\currversion{06/02/2024}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage[a4paper]{geometry} % Configuração geral do documento
 
 \typeout{^^J^^J
 --------------------------------------------------^^J
-CLASSE texufpel^^J
-Formatação de Documentos LaTeX da UFPEL^^J
+CLASSE texifsuledu^^J
+Formatação de Documentos LaTeX do IFSUL^^J
+por Ruhan Avila da Conceição (ruhanconceicao@ifsul.edu.br)^^J
 --------------------------------------------------^^J
-Desenvolvida a partir da Classe IIUFRGS^^J
+Desenvolvida a partir da Classe texufpel^^J
 por Marilton S. de Aguiar (marilton@inf.ufpel.edu.br)^^J
 --------------------------------------------------^^J
 Versão: \currversion^^J
 --------------------------------------------------^^J^^J}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{texufpel}[\currversion]
+\ProvidesClass{texifsuledu}[\currversion]
 
 %==============================================================================
 % Declaração de opções
@@ -27,13 +31,16 @@ Versão: \currversion^^J
 \newcommand{\universidade}[1]{\gdef\@universidade{#1}}
 \newcommand{\universidadeeng}[1]{\gdef\@universidadeeng{#1}}
 \universidade{Instituto Federal de Educação, Ciência e Tecnologia Sul-rio-grandense}
-\universidadeeng{Federal University of Pelotas}
+\universidadeeng{Federal Institute of Education, Science and Technology Sul-rio-grandense}
 
 \newcommand{\unidade}[1]{\gdef\@unidade{#1}}
 \newcommand{\programa}[1]{\gdef\@programa{#1}}
 \newcommand{\curso}[1]{\gdef\@curso{#1}}
 \newcommand{\nomecurso}[1]{\gdef\@nomecurso{#1}}
-\newcommand{\titulocurso}[1]{\gdef\@titulocurso{#1}}
+% \newcommand{\titulocurso}[1]{\gdef\@titulocurso{#1}}
+\newcommand{\tituloformacao}[1]{\gdef\@tituloformacao{#1}}
+
+\newcommand{\areaconhecimento}[1]{\gdef\@areaconhecimento{#1}}
 
 \newcommand{\unidadeeng}[1]{\gdef\@unidadeeng{#1}}
 \newcommand{\programaeng}[1]{\gdef\@programaeng{#1}}
@@ -59,8 +66,11 @@ Versão: \currversion^^J
 \DeclareOption{diss}{
 \documento{Disserta\c c\~ao}
 \tipodocumento{\dissname\ (\masterin\ \cursoname) -- \unidadename}
-\descricaodocumento{Disserta{\c{c}}{\~a}o apresentada ao \@programa\ do \@unidade\ do \@universidade, como requisito parcial \`a obten{\c{c}}{\~a}o do t\'itulo de Mestre em \@curso.}
-\descricaoaprovacao{Disserta{\c{c}}{\~a}o aprovada, como requisito parcial, para obten{\c{c}}{\~a}o do grau de Mestre em \@curso, \@programa, \@unidade, \@universidade.}
+\descricaodocumento{Disserta{\c{c}}{\~a}o apresentada ao \@programa\ do \@unidade\ do \@universidade, como requisito parcial \`a obten{\c{c}}{\~a}o do t\'itulo de \@tituloformacao. \\\'Area de concentra\c{c}{\~a}o: \@areaconhecimento\\ \advisorname:~\@advisora \\
+\@ifundefined{@coadvisora}{}{\coadvisorname\@ifundefined{@coadvisorb}{}{es}: \@coadvisora}
+\@ifundefined{@coadvisorb}{}{e \@coadvisorb}
+} 
+\descricaoaprovacao{Disserta{\c{c}}{\~a}o aprovada, como requisito parcial, para obten{\c{c}}{\~a}o do grau de \@tituloformacao, \@programa, \@unidade, \@universidade.}
 }
 
 \DeclareOption{diss-proposta}{
@@ -168,6 +178,7 @@ Versão: \currversion^^J
   \def\unidadename{\@unidade}%
   \def\programaname{\@programa}%
   \def\cursoname{\@curso}%
+  \def\areaconhecimento{\@areaconhecimento}%
 }
 
 \@namedef{datebrazilian}{%
@@ -385,40 +396,53 @@ Versão: \currversion^^J
 }
 }
 
+\definecolor{greenifsul}{RGB}{0, 128, 0}
+\definecolor{redppgedu}{RGB}{174, 61, 38}
+\newcommand{\greenline}{
+    \noindent\makebox[\linewidth]{\textcolor{greenifsul}{\rule{23cm}{6mm}}}
+}
+\newcommand{\redline}{
+    \noindent\makebox[\linewidth]{\textcolor{redppgedu}{\rule{23cm}{6mm}}}
+}
+
+
 \newcommand{\thecoverpage}{%
-  \onehalfspacing%
   \noindent%
-      \centering%
-      \vskip 1cm%
-      \MakeUppercase{\textbf{\@universidade}}\\%
-      \textbf{\@unidade}\\%
-      \@ifundefined{@nomecurso}{\textbf{\@programa}}{\textbf{Curso de \@nomecurso}}\\%
-      \vskip 1cm%
-      \includegraphics[width=3cm]{ufpelw}
-      \vskip 1cm%
-      \@documento\\%
-      \vskip 1cm%
-  \vskip 3cm%
-  \noindent%
-      \centering%
-      \vskip .5cm%
-      \textbf{\@title}%
-      \vskip .5cm%
-  \vskip 3cm%
-  \noindent%
-      \centering%
-      \vskip .5cm%
-      \textbf{\@authora\\
-      \@ifundefined{@authorb}{}{\@authorb\\}%
-      \@ifundefined{@authorc}{}{\@authorc\\}%
-      \@ifundefined{@authord}{}{\@authord\\}}%
-      \vskip .5cm%
-  \vfill%
-  \noindent%
-      \centering%
-      \vskip .1cm%
-      \@city, \ei@date%
-      \vskip .1cm%
+        \newgeometry{margin=2cm, top=0cm, bottom=0cm}
+        \centering
+        \redline
+        \vskip 1cm%
+        \includegraphics[width=0.5\textwidth]{marca/ppgedu.jpeg}
+        \vskip 1cm%
+        {\bfseries \@curso}
+        \centering
+        \vfill%
+        \begin{tcolorbox}[
+            colframe=redppgedu,     % Cor da borda
+            colback=white,      % Cor de fundo da caixa            
+            boxrule=1mm,      % Espessura da borda
+            arc=5mm,            % Raio de arredondamento das bordas
+            width=\textwidth,   % Largura igual à largura do texto
+            top=10pt, bottom=10pt, % Espaçamento no topo e embaixo
+            center,             % Centraliza o conteúdo da caixa 
+        ]        
+            \centering{\bfseries\fontsize{14pt}{14pt}\selectfont \@title}
+            \vskip 10mm % Espaço entre o título e o autor
+            \@authora % Autor(a) centralizado(a)
+            % \vskip 10mm % Espaço entre o título e o autor
+            % \@city, \ei@date%        
+        \end{tcolorbox}
+        % \vskip 1cm%
+        % \advisorname: \@advisora
+        \vfill%
+        \@city, \ei@date%                
+        \vskip 0.5cm%
+        \centering%
+        \includegraphics[width=3cm]{marca/pelotas/versaovertical.png}
+        \vskip 1cm%
+        \redline
+        \restoregeometry%
+
 }
 
 \newcommand{\thetitlepage}{%
@@ -428,9 +452,9 @@ Versão: \currversion^^J
     \@ifundefined{@authorb}{}{\textbf{\@authorb}\\}%
     \@ifundefined{@authorc}{}{\textbf{\@authorc}\\}%
     \@ifundefined{@authord}{}{\textbf{\@authord}\\}%
-    \vskip 5cm%
+    \vskip 6cm%
     {\textbf{\@title}}%
-  \vskip 8cm%
+  \vskip 6cm%
         \singlespacing%
   \begin{adjustwidth}{7cm}{0cm}
 %        \begin{hyphenrules}{nohyphenation}%
@@ -439,48 +463,9 @@ Versão: \currversion^^J
   \end{adjustwidth}
     \vfill%
   \vfill%
-  \@ifundefined{@advisora}{}{%
-    \onehalfspacing%
-    \centering%
-        \@ifundefined{@advisora}{}{
-          \begin{tabular}{rp{9cm}}%
-          \@ifundefined{@advisorb}{\advisorname:}{\advisorname es:} &
-          \@ifundefined{@advisora}{}{\@advisora\\}
-          \@ifundefined{@advisorb}{}{\ &}
-          \@ifundefined{@advisorb}{}{\@advisorb\\}
-          \@ifundefined{@advisorc}{}{\ &}
-          \@ifundefined{@advisorc}{}{\@advisorc\\}
-          \@ifundefined{@advisord}{}{\ &}
-          \@ifundefined{@advisord}{}{\@advisord\\}
-          \end{tabular}
-          }
-        \@ifundefined{@coadvisora}{}{
-        \begin{tabular}{rp{9cm}}%
-      	\@ifundefined{@coadvisorb}{\coadvisorname:}{\coadvisorname es:} &
-      	\@ifundefined{@coadvisora}{}{\@coadvisora\\}
-        \@ifundefined{@coadvisorb}{}{\ &}
-        \@ifundefined{@coadvisorb}{}{\@coadvisorb\\}
-        \@ifundefined{@coadvisorc}{}{\ &}
-        \@ifundefined{@coadvisorc}{}{\@coadvisorc\\}
-        \@ifundefined{@coadvisord}{}{\ &}
-        \@ifundefined{@coadvisord}{}{\@coadvisord\\}
-        \end{tabular}
-        }
-        \@ifundefined{@collaboratora}{}{
-        \begin{tabular}{rp{9cm}}%
-      	\@ifundefined{@collaboratorb}{\collaboratorname:}{\collaboratorname es:} &
-      	\@ifundefined{@collaboratora}{}{\@collaboratora\\}
-        \@ifundefined{@collaboratorb}{}{\ &}
-        \@ifundefined{@collaboratorb}{}{\@collaboratorb\\}
-        \@ifundefined{@collaboratorc}{}{\ &}
-        \@ifundefined{@collaboratorc}{}{\@collaboratorc\\}
-        \@ifundefined{@collaboratord}{}{\ &}
-        \@ifundefined{@collaboratord}{}{\@collaboratord\\}
-        \end{tabular}
-        }
-    \vfill%
-  }%
-  \centerline{\@city, \ei@date}%
+  
+  \centerline{\@city}%
+  \centerline{\ei@date}%
 }
 
 %==============================================================================
@@ -822,7 +807,7 @@ Versão: \currversion^^J
 	\mbox{}
 	\vfill
 	\begin{center}
-		\textbf{Insira AQUI a ficha catalogr\'afica\\Quando finalizado o trabalho, deve ser\\solicitada através do Sistema Cobalto\\Biblioteca -- Cadastro -- Ficha catalográfica.}
+		\textbf{Insira AQUI a ficha catalogr\'afica quando finalizado o trabalho}
 	\end{center}
 	\vfill
 }
