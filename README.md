@@ -1,6 +1,6 @@
 # texifsul
 
-O **texifsul** é um projeto baseado no [texufpel](https://github.com/notcc/texufpel), com o objetivo de disponibilizar um modelo de arquivo LaTeX adaptado para trabalhos acadêmicos da IFSul. Este repositório está atualmente em fase inicial de adaptação e personalização para atender às diretrizes institucionais do IFSul, sendo um fork do projeto original da UFPel.
+O **texifsul** é um projeto baseado no [texufpel](https://github.com/notcc/texufpel), com o objetivo de disponibilizar um modelo de arquivo LaTeX adaptado para trabalhos acadêmicos do IFSul. Este repositório está atualmente em fase inicial de adaptação e personalização para atender às diretrizes institucionais do IFSul, sendo um fork do projeto original da UFPel.
 
 ## Objetivo
 
@@ -10,7 +10,7 @@ Este projeto visa fornecer um template LaTeX que facilite a criação de trabalh
 - Trabalhos de conclusão de curso (TCC);
 - Relatórios técnicos.
 
-Com base no template da UFPel, o **texifsul** está sendo customizado para as normas da IFSul, garantindo que os alunos e pesquisadores tenham uma ferramenta eficiente para formatar seus documentos conforme as exigências acadêmicas.
+Com base no template da UFPel, o **texifsul** está sendo customizado para as normas do IFSul, garantindo que os alunos e pesquisadores tenham uma ferramenta eficiente para formatar seus documentos conforme as exigências acadêmicas.
 
 ## Status do Projeto
 
@@ -21,8 +21,7 @@ O projeto encontra-se em fase inicial de desenvolvimento. Algumas adaptações e
 Você pode utilizar o modelo **texifsul** diretamente no [Overleaf](https://overleaf.com), uma plataforma online para edição de documentos em LaTeX. Siga os passos abaixo para baixar o projeto e iniciá-lo no Overleaf:
 
 ### 1. Baixar o projeto do GitHub
-1. Acesse o repositório do projeto no GitHub: [texifsul](https://github.com/seu-usuario/texifsul) (substitua pelo link correto do repositório).
-2. Clique no botão verde **Code** e em seguida em **Download ZIP** para baixar o projeto para o seu computador.
+1. Clique no botão verde **Code** no início desta página e em seguida em **Download ZIP** para baixar o projeto para o seu computador.
 
 ### 2. Enviar o projeto para o Overleaf
 1. Acesse o [Overleaf](https://overleaf.com) e faça login com sua conta.
